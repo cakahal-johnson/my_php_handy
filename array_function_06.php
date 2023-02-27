@@ -78,8 +78,8 @@ print_r($newNumbers);
 
 //Array Reduce
 //This "carry" holds the return value of the previous iteration
-$sum = array_reduce($numbers, fn($carry, $number) => $carry + $number);
-print_r($sum);
+// $sum = array_reduce($numbers, fn($carry, $number) => $carry + $number);
+// print_r($sum);
 
 //Assignment use array filter to get the odd numbers and even numbers in the range of 1 to 99 using arrow function 
 

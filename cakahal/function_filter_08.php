@@ -32,6 +32,32 @@
 
 
     ];
+
+    // here is where we use the Filter Function
+    function filterByAuthor($books){
+        $filteredBooks = [];
+
+        foreach ($books as $book){
+            if ($book['author'] === 'Andy Weir'){
+                $filteredBooks[] = $book; // here we apend the function to our loop variable
+            }
+        }
+
+        return $filteredBooks; // here we assign the function the our filterbook var
+    }
+
+    // here is where we use the Filter Function
+    function filterByAuthor2($books, $author){ // we added author as an args
+        $filteredBooks = [];
+
+        foreach ($books as $book){
+            if ($book['author'] === $author){ // here we change the author variable as well
+                $filteredBooks[] = $book; // here we apend the function to our loop variable
+            }
+        }
+
+        return $filteredBooks; // here we assign the function the our filterbook var
+    }
 ?>
 
 
@@ -75,6 +101,34 @@
                 </a>
             </li>   
         <?php endif; ?>     
+    <?php endforeach; ?>
+</ul>
+
+<?php echo '<br>' ?>
+
+<ul>
+    <!-- filtering through the arrays to get the books for Andy Weir hard coded in FUNCTIONS in above php session -->
+    <?php foreach(filterByAuthor($books) as $book) : ?>
+            <li>
+                <a href="<?= $book['purchaseUrl'] ?>">
+                    <?= $book['name']; ?> (<?= $book['releaseYear'] ?>)
+                   - By <?= $book['author'] ?>
+                </a>
+            </li>   
+    <?php endforeach; ?>
+</ul>
+
+<?php echo '<br>' ?>
+
+<ul>
+    <!-- filtering through the arrays to get the books for Andy Weir hard coded in evn FUNCTIONS in above php session -->
+    <?php foreach(filterByAuthor2($books, 'Philip K. Dick' ) as $book) : ?>
+            <li>
+                <a href="<?= $book['purchaseUrl'] ?>">
+                    <?= $book['name']; ?> (<?= $book['releaseYear'] ?>)
+                   - By <?= $book['author'] ?>
+                </a>
+            </li>   
     <?php endforeach; ?>
 </ul>
 
